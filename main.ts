@@ -1,5 +1,5 @@
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    jugador = sprites.create(img`
+    jugador.setImage(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 1 1 1 1 1 2 2 1 1 1 1 1 2 2 
@@ -9,18 +9,18 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 2 2 f f f 1 1 2 2 f f f 1 1 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 4 4 4 4 4 2 2 2 2 2 2 2 
-2 2 2 2 4 4 4 4 4 2 2 2 2 2 2 2 
-2 2 2 2 4 4 4 4 4 2 2 2 2 2 2 2 
-2 2 2 2 4 4 4 4 4 2 2 2 2 2 2 2 
+2 2 2 2 2 4 4 4 4 2 2 2 2 2 2 2 
+2 2 2 2 2 4 4 4 4 2 2 2 2 2 2 2 
+2 2 2 2 2 4 4 4 4 2 2 2 2 2 2 2 
+2 2 2 2 2 4 4 4 4 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, SpriteKind.Player)
-    jugador.setVelocity(-150, 0)
+`)
+    controller.moveSprite(jugador, 100, 0)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    jugador = sprites.create(img`
+    jugador.setImage(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 1 1 1 1 1 2 2 1 1 1 1 1 2 2 
@@ -30,15 +30,15 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 2 2 1 1 f f f 2 2 1 1 f f f 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 4 4 4 4 4 2 2 2 2 2 
-2 2 2 2 2 2 4 4 4 4 4 2 2 2 2 2 
-2 2 2 2 2 2 4 4 4 4 4 2 2 2 2 2 
-2 2 2 2 2 2 4 4 4 4 4 2 2 2 2 2 
+2 2 2 2 2 2 2 4 4 4 4 2 2 2 2 2 
+2 2 2 2 2 2 2 4 4 4 4 2 2 2 2 2 
+2 2 2 2 2 2 2 4 4 4 4 2 2 2 2 2 
+2 2 2 2 2 2 2 4 4 4 4 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, SpriteKind.Player)
-    jugador.setVelocity(150, 0)
+`)
+    controller.moveSprite(jugador, -100, 0)
 })
 let jugador: Sprite = null
 jugador = sprites.create(img`
@@ -182,3 +182,8 @@ d 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 d d d d d d d d d d d d 7 7 7 7 7 d d 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `)
 jugador.setPosition(74, 65)
+scene.cameraFollowSprite(jugador)
+controller.moveSprite(jugador)
+forever(function () {
+	
+})
